@@ -5,16 +5,63 @@
   text-decoration: none;
 }
 
+ul, ol {
+  list-style: none;
+}
+
+li {
+  margin: .2em;
+  padding: .2em;
+  cursor: pointer;
+}
+
+li:hover {
+  background-color:bisque;
+}
+
+input, select, button {
+  outline: none;
+  padding: .5em;
+  border: 0;
+  border-radius: .4em;
+  margin: .2em;
+}
+
+select:hover, input:hover, button:hover {
+  background-color: bisque;
+}
+
+table {
+    font-family: 'Monaco', monospace;
+    text-align: left;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead {
+  background-color: beige;
+  height: 2em;
+}
+
+table th,
+table td {
+  padding: .5em 1em;
+}
+
+canvas {
+  width: 100%;
+  background-color: white;
+}
+
 .App {
   background-color: lightblue;
   min-height: 100vh;
   width: 100vw;
 }
 
-.Container {
+.layout {
   display: grid;
   grid-template-columns: 1fr 2.5fr;
-  height: 100vh;
   width: 80%;
   margin: 0 auto;
 }
@@ -24,14 +71,6 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-}
-
-.left {
-  border: 1px solid yellow;
-}
-
-.right {
-  border: 1px solid green;
 }
 
 .header {
@@ -51,37 +90,21 @@
   border: 1px solid bisque;
 }
 
-button {
-  padding: .5em;
-  border-radius: .5em;
-  margin: .2em;
-}
-
 .example-list {
   width: 100%;
   margin: 0;
-  padding: 1em 1.5em;
+  padding: .5em;
 }
 
-.container table {
+
+.actions {
   width: 100%;
-  margin: 1em auto;
+  height: 4em;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid bisque;
 }
 
-table th,
-table td {
-  padding: .1em;
-  text-align: center;
-}
-
-table input,
-table select {
-  padding: .3em;
-  border-radius: .5em;
-}
-
-canvas {
-  width: 100%;
-  height: 25em;
-  background-color: white;
+.addOption.actions {
+  justify-content: space-around;
 }

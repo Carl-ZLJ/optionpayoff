@@ -1,10 +1,10 @@
 export default class OptionData {
 	constructor(option) {
+		this.contract = option.contract
 		this.direction = option.direction
 		this.kind = option.kind
-		this.strike = parseInt(option.strike)
-		this.price = option.price
-		this.expiry = option.expiry
+		this.strike = Math.round(option.strike * 1000)
+		this.price = Math.round(option.price * 10000)
 
 		if(this.kind === 'call' && this.direction === 'buy') {
 			this.func = function(x) {

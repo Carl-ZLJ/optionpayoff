@@ -9,17 +9,18 @@ export default function PayoffChart() {
 
 	const initCanvas = (options) => {
 		let axisX = 0, axisY = 0
-		if(options.length > 1) {
-			for (const option of options) {
-				if(axisX < option.strike) {
-					axisX = option.strike
-				}
+		if(options.length === 0) return
+		for (const option of options) {
+			const { strike, price } = option 
+			if(axisX < strike) {
+				axisX = strike
 			}
-		} else {
-			axisX = options[0].strike
+			if(axisY < price) {
+				axisY = price
+			}
 		}
 		axisX = Math.round(axisX * 2)
-		axisY = axisX / 2
+		axisY = axisX
 
 		let canvas = ref.current
 		let axis = new Axis(canvas, axisX, axisY)
@@ -31,6 +32,7 @@ export default function PayoffChart() {
 		const x = axis.x
 		for (const option of options) {
 			const points = option.generatePoints(x)
+
 			axis.drawLine(points)
 		}
 	}
@@ -69,7 +71,7 @@ export default function PayoffChart() {
 			<header className="header">
 				Payoff Chart
 			</header>
-			<div>
+			<div className="actions">
 				<button onClick={handleGenerate}>Generate</button>
 				<button onClick={handleCombinePayoffCharts}>Combine</button>
 				<button onClick={handleClear}>Clear</button>

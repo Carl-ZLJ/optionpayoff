@@ -12,7 +12,7 @@ export default class Axis {
 		this.ctx.scale(1, -1)
 		
 		this.ctx.strokeStyle = 'rgb(200, 0, 0)'
-		this.ctx.lineWidth = Math.round(8 * this.x * this.y / this.baseArea)
+		this.ctx.lineWidth = 16
 
 
 		this.drawAxisX()
@@ -43,7 +43,7 @@ export default class Axis {
 	drawLine(points, { color } = { color: 'rgb(217, 20, 0)' }) {
 		this.ctx.save()
 		this.ctx.strokeStyle = color
-		this.ctx.lineWidth = Math.round(16 * this.x * this.y / this.baseArea)
+		this.ctx.lineWidth = 16
 		this.ctx.beginPath()
 		this.ctx.moveTo(...points[0])
 		for(let i = 1; i < points.length; i++) {
